@@ -242,13 +242,45 @@ public class RedisUtils {
 
     /**
      * exists 命令
-     * @param key
+     * @param key               key
      * @return
      */
-    public static boolean exists(String key) {
+    public static Boolean exists(String key) {
         Boolean result = null;
         try (ShardedJedis shardedJedis = getInstance()){
             result = shardedJedis.exists(key);
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+        return result;
+    }
+
+    /**
+     * expire 命令
+     * @param key               key
+     * @param seconds           存活时间，单位/秒
+     * @return
+     */
+    public static Long expire(String key, int seconds) {
+        Long result = null;
+        try (ShardedJedis shardedJedis = getInstance()){
+            result = shardedJedis.expire(key, seconds);
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+        return result;
+    }
+
+    /**
+     * expireAt 命令
+     * @param key               key
+     * @param unixTime          存活截止时间戳
+     * @return
+     */
+    public static Long expireAt(String key, long unixTime) {
+        Long result = null;
+        try (ShardedJedis shardedJedis = getInstance()){
+            result = shardedJedis.expireAt(key, unixTime);
         } catch (Exception e) {
             logger.error(e.getMessage());
         }

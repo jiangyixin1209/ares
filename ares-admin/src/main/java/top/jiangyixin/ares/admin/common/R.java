@@ -13,6 +13,9 @@ public class R<T> {
     private String message;
     private T data;
 
+    public static final R<String> SUCCESS = new R<String>(null);
+    public static final R<String> FAIL = new R<String>(500, null);
+
     public R(int code, String message) {
         this.code = code;
         this.message = message;
@@ -21,6 +24,11 @@ public class R<T> {
     public R(int code, String message, T data) {
         this.code = code;
         this.message = message;
+        this.data = data;
+    }
+
+    public R(T data) {
+        this.code = 200;
         this.data = data;
     }
 
