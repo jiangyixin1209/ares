@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.jiangyixin.ares.admin.mapper.CacheTemplateMapper">
+
+    <select id="listByKey" resultType="top.jiangyixin.ares.admin.pojo.entity.CacheTemplate">
+        select `id`, `key_tpl`, `description` from `ares_cache_template`
+        <where>
+            <if test="key != null and key != ''">
+                `key_tpl` like '${key}%' or `description` like '${key}%'
+            </if>
+        </where>
+    </select>
+</mapper>

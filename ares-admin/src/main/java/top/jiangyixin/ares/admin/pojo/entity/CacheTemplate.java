@@ -14,6 +14,7 @@ import java.util.Date;
  */
 @TableName("ares_cache_template")
 public class CacheTemplate {
+	
 	@TableId(type = IdType.AUTO)
 	private Long id;
 	private String keyTpl;

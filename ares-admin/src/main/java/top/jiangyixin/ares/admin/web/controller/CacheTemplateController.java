@@ -1,6 +1,7 @@
 package top.jiangyixin.ares.admin.web.controller;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import top.jiangyixin.ares.admin.pojo.dto.CacheTemplateDTO;
 import top.jiangyixin.ares.admin.service.CacheTemplateService;
 
 import java.util.Date;
+import java.util.Map;
 
 /**
  * CacheTemplate Controller
@@ -33,13 +35,31 @@ public class CacheTemplateController {
 	
 	@PostMapping("/create")
 	@ApiOperation("创建缓存模板")
-	public R<String> create(@Validated CacheTemplateDTO cacheTemplateDTO) {
+	public R<String> create(
+			@Validated(CacheTemplateDTO.Create.class) CacheTemplateDTO cacheTemplateDTO) {
 		return cacheTemplateService.create(cacheTemplateDTO);
 	}
 	
-	@PostMapping("/delete/{id}")
-	public String delete(@PathVariable("id") Long id) {
-		boolean result = cacheTemplateService.removeById(id);
-		return "";
+	@PostMapping("/update")
+	@ApiOperation("更新缓存模板")
+	public R<String> update(
+			@Validated(CacheTemplateDTO.Update.class) CacheTemplateDTO cacheTemplateDTO
+	) {
+		return cacheTemplateService.update(cacheTemplateDTO);
+		
 	}
+	
+	@PostMapping("/delete/{id}")
+	@ApiOperation("删除缓存模板")
+	public R<String> delete(@PathVariable("id") Long id) {
+		boolean result = cacheTemplateService.removeById(id);
+		return result ? R.SUCCESS : R.FAIL;
+	}
+	
+	@PostMapping("/list")
+	@ApiOperation("查询缓存模板")
+	public R<Map<String, ?>> list(String key, Integer page, Integer limit) {
+		return cacheTemplateService.list(key, page, limit);
+	}
+	
 }
