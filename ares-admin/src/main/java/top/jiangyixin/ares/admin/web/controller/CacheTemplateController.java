@@ -1,18 +1,14 @@
 package top.jiangyixin.ares.admin.web.controller;
 
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import top.jiangyixin.ares.admin.common.R;
-import top.jiangyixin.ares.admin.pojo.entity.CacheTemplate;
 import top.jiangyixin.ares.admin.pojo.dto.CacheTemplateDTO;
 import top.jiangyixin.ares.admin.service.CacheTemplateService;
 
-import java.util.Date;
 import java.util.Map;
 
 /**
