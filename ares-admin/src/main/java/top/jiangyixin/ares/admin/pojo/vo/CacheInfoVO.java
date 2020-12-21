@@ -1,4 +1,4 @@
-package top.jiangyixin.ares.admin.vo;
+package top.jiangyixin.ares.admin.pojo.vo;
 
 /**
  * 缓存信息 VO

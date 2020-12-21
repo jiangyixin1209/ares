@@ -1,4 +1,8 @@
-package top.jiangyixin.ares.admin.entity;
+package top.jiangyixin.ares.admin.pojo.entity;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.util.Date;
 
@@ -8,10 +12,12 @@ import java.util.Date;
  * @author jiangyixin
  * @date 2020/12/18 下午5:11
  */
+@TableName("ares_cache_template")
 public class CacheTemplate {
+	@TableId(type = IdType.AUTO)
 	private Long id;
-	private String key;
-	private String desc;
+	private String keyTpl;
+	private String description;
 	private Date gmtCreate;
 	private Date gmtModified;
 	
@@ -23,20 +29,20 @@ public class CacheTemplate {
 		this.id = id;
 	}
 	
-	public String getKey() {
-		return key;
+	public String getKeyTpl() {
+		return keyTpl;
 	}
 	
-	public void setKey(String key) {
-		this.key = key;
+	public void setKeyTpl(String keyTpl) {
+		this.keyTpl = keyTpl;
 	}
 	
-	public String getDesc() {
-		return desc;
+	public String getDescription() {
+		return description;
 	}
 	
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	public Date getGmtCreate() {
@@ -59,8 +65,8 @@ public class CacheTemplate {
 	public String toString() {
 		return "CacheTemplate{" +
 				"id=" + id +
-				", key='" + key + '\'' +
-				", desc='" + desc + '\'' +
+				", keyTpl='" + keyTpl + '\'' +
+				", description='" + description + '\'' +
 				", gmtCreate=" + gmtCreate +
 				", gmtModified=" + gmtModified +
 				'}';

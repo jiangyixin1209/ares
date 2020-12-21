@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.jiangyixin.ares.admin.common.R;
 import top.jiangyixin.ares.admin.util.JsonUtils;
-import top.jiangyixin.ares.admin.vo.CacheInfoVO;
+import top.jiangyixin.ares.admin.pojo.vo.CacheInfoVO;
 import top.jiangyixin.ares.core.AresCacheKey;
 import top.jiangyixin.ares.core.AresCacheService;
 

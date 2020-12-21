@@ -1,7 +1,7 @@
 package top.jiangyixin.ares.admin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import top.jiangyixin.ares.admin.entity.CacheTemplate;
+import top.jiangyixin.ares.admin.pojo.entity.CacheTemplate;
 
 /**
  * key模板表 Mapper 接口

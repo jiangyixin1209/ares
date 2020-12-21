@@ -3,7 +3,11 @@ server:
 
 spring:
   datasource:
-    driver-class-name: com.alibaba.druid.proxy.DruidDriver
-    url: jdbc:mysql://127.0.0.1:3306/ares
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ares?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: gllue123
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
