@@ -1,7 +1,7 @@
 package top.jiangyixin.ares.admin.service.impl;
 
 import org.springframework.stereotype.Service;
-import top.jiangyixin.ares.admin.util.RedisUtils;
+import top.jiangyixin.ares.admin.util.RedisUtil;
 import top.jiangyixin.ares.core.AresCacheKey;
 import top.jiangyixin.ares.core.AresCacheService;
 
@@ -33,7 +33,7 @@ public class AresAdminCacheServiceImpl implements AresCacheService {
      */
     @Override
     public Object get(AresCacheKey aresCacheKey) {
-        return RedisUtils.getObjectValue(aresCacheKey.getRealKey());
+        return RedisUtil.getObjectValue(aresCacheKey.getRealKey());
     }
 
     /**
@@ -43,7 +43,7 @@ public class AresAdminCacheServiceImpl implements AresCacheService {
      */
     @Override
     public boolean delete(AresCacheKey aresCacheKey) {
-        Long result = RedisUtils.del(aresCacheKey.getRealKey());
+        Long result = RedisUtil.del(aresCacheKey.getRealKey());
         return result != null && result > 0;
     }
 }

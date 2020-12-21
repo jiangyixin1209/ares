@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.jiangyixin.ares.admin.common.R;
-import top.jiangyixin.ares.admin.util.JsonUtils;
+import top.jiangyixin.ares.admin.util.JsonUtil;
 import top.jiangyixin.ares.admin.pojo.vo.CacheInfoVO;
 import top.jiangyixin.ares.core.AresCacheKey;
 import top.jiangyixin.ares.core.AresCacheService;
@@ -46,7 +46,7 @@ public class CacheController {
 		cacheInfoVO.setJavaType(cacheValue.getClass().getName());
 		cacheInfoVO.setLength(length);
 		cacheInfoVO.setToString(cacheValue.toString());
-		cacheInfoVO.setJson(JsonUtils.writeValueAsString(cacheValue));
+		cacheInfoVO.setJson(JsonUtil.writeValueAsString(cacheValue));
 		return new R<>(cacheInfoVO);
 	}
 	

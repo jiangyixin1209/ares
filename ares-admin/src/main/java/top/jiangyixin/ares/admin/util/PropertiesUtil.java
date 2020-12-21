@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -17,8 +16,8 @@ import java.util.Properties;
  * @version 1.0
  * @date 2020/12/18
  */
-public class PropertiesUtils {
-    private final static Logger logger = LoggerFactory.getLogger(PropertiesUtils.class);
+public class PropertiesUtil {
+    private final static Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);
     public static final String DEFAULT_CONFIG = "ares.properties";
 
     /**

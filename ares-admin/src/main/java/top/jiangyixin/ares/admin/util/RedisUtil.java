@@ -22,9 +22,9 @@ import java.util.concurrent.locks.ReentrantLock;
  * @version 1.0
  * @date 2020/12/18
  */
-public class RedisUtils {
+public class RedisUtil {
 
-    private final static Logger logger = LoggerFactory.getLogger(RedisUtils.class);
+    private final static Logger logger = LoggerFactory.getLogger(RedisUtil.class);
     /**
      * 默认过期时间（单位/秒），默认两小时
      */
@@ -78,8 +78,8 @@ public class RedisUtils {
                     jedisPoolConfig.setMinEvictableIdleTimeMillis(60000);
 
                     List<JedisShardInfo> jedisShardInfoList = new LinkedList<JedisShardInfo>();
-                    Properties properties = PropertiesUtils.loadProperties(PropertiesUtils.DEFAULT_CONFIG);
-                    String addresses = PropertiesUtils.getString(properties, "jedis.address");
+                    Properties properties = PropertiesUtil.loadProperties(PropertiesUtil.DEFAULT_CONFIG);
+                    String addresses = PropertiesUtil.getString(properties, "jedis.address");
                     for (String address : addresses.split(",")) {
                         String[] addressInfo = address.split(":");
                         String host = addressInfo[0];

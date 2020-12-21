@@ -12,8 +12,8 @@ import org.slf4j.LoggerFactory;
  * @version 1.0
  * @date 2020/12/19
  */
-public class JsonUtils {
-    private final static Logger logger = LoggerFactory.getLogger(JsonUtils.class);
+public class JsonUtil {
+    private final static Logger logger = LoggerFactory.getLogger(JsonUtil.class);
     private final static ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     public static ObjectMapper getInstance() {
