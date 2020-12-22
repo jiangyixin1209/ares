@@ -2,6 +2,7 @@ package top.jiangyixin.ares.admin.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.JedisShardInfo;
 import redis.clients.jedis.ShardedJedis;
@@ -9,6 +10,7 @@ import redis.clients.jedis.ShardedJedisPool;
 import top.jiangyixin.ares.admin.exception.AresException;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
@@ -79,7 +81,10 @@ public class RedisUtil {
 
                     List<JedisShardInfo> jedisShardInfoList = new LinkedList<JedisShardInfo>();
                     Properties properties = PropertiesUtil.loadProperties(PropertiesUtil.DEFAULT_CONFIG);
-                    String addresses = PropertiesUtil.getString(properties, "jedis.address");
+                    String addresses = PropertiesUtil.getString(properties, "redis.address");
+                    if (StringUtils.isEmpty(addresses)) {
+                        throw new AresException("redis.address must be set !");
+                    }
                     for (String address : addresses.split(",")) {
                         String[] addressInfo = address.split(":");
                         String host = addressInfo[0];

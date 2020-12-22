@@ -1,6 +1,7 @@
 package top.jiangyixin.ares.admin.web.controller;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +34,7 @@ public class CacheController {
 	}
 
 	@GetMapping("/get")
+	@ApiOperation("获取缓存信息")
 	public R<?> getCache(String key, String param) {
 		String[] params = param != null ? param.split(",") : null;
 		AresCacheKey cacheKey = new AresCacheKey(key, params);
@@ -51,6 +53,7 @@ public class CacheController {
 	}
 	
 	@PostMapping("/remove")
+	@ApiOperation("移除缓存")
 	public R<String> removeCache(String key, String param) {
 		String[] params = param != null ? param.split(",") : null;
 		AresCacheKey cacheKey = new AresCacheKey(key, params);
